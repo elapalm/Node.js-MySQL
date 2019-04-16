@@ -12,9 +12,16 @@ connection.connect(function (err) {
   if (err) throw err;
   console.log("connected as id" + connection.threadId);
   afterConnection();
-});
+  console.log("Welcome to Bamazon!");
+}); // end of MySQL
 
-// Inquirer
+// display the products
+function showInventory(){
+  var query "SELECT * FROM products";
+  
+}
+
+  // Inquirer
 var inquirer = require("inquirer");
 inquirer
   .prompt([
@@ -32,15 +39,10 @@ inquirer
     },
 
   ])
-  .then (function(answer) {
+  .then(function (answer) {
     var guestQuantity = answer.quantity;
     var itemID = answer.ID;
-    customerOrder (itemID, guestQuantity);
+    customerOrder(itemID, guestQuantity);
   });
 
-function customerOrder(ID, neededQty);
-    connection.query("SELECT * FROM products WHERE id =" + ID, function(err, res)
-     
 
-    
-    );

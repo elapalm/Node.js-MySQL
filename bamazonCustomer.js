@@ -15,10 +15,10 @@ connection.connect(function (err) {
   console.log("Welcome to Bamazon!");
 }); // end of MySQL
 
-// display the products
+// CONTINUE WORKING HERE!1!!
 function showInventory(){
   var query "SELECT * FROM products";
-  
+
 }
 
   // Inquirer

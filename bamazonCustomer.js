@@ -1,6 +1,9 @@
+var mysql = require("mysql");
+var inquirer = require ("inquirer");
+
 // MySQL
 
-var mysql = mysql.createConnection({
+var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
@@ -15,12 +18,6 @@ connection.connect(function (err) {
   console.log("Welcome to Bamazon!");
 }); // end of MySQL
 
-// CONTINUE WORKING HERE!1!!
-function showInventory(){
-  var query "SELECT * FROM products";
-
-}
-
   // Inquirer
 var inquirer = require("inquirer");
 inquirer
@@ -33,16 +30,26 @@ inquirer
     },
     {
       type: input,
-      name: quaantity,
+      name: quantity,
       message: "How many would you like to purchase?",
       filter: Number
     },
 
-  ])
-  .then(function (answer) {
-    var guestQuantity = answer.quantity;
-    var itemID = answer.ID;
-    customerOrder(itemID, guestQuantity);
-  });
+  ]).then(function(input) {
+    var guestQuantity = input.quantity;
+    var itemID = input.ID;
+    var dbQuery = 'SELECT * FROM products WHERE ?';
 
+    connection.query(dbQuery, {item_id: item}, function(err, data){
+      if (err) throw err;
+
+      if (data.langth === 0) {
+        console.log("Please enter a valid Item Id!");
+        showItems();
+      } else {
+        var prodData = data[0];
+      }
+    })
+    customerOrder(itemID, guestQuantity);
+  })
 

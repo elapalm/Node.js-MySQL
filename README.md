@@ -1,10 +1,10 @@
 # Node.js-MySQL
 
-# **Description**
+# Description
 
 Bamazon is a basic storefront like application that uses the NPM Inquirer, Node, and MySQL database together. The Bamazon App will feature a Customer interface which allows customers to see inventory and sell purchase products. Inventory changes based on customer's purchase. The Manager interface allows the manager to see and adjust inventory levels and add new product to the inventory.
 
-# ** Download instructions **
+#  Download instructions 
 
 To run each app you will first need to clone the repository to your machine using the following link:
 
